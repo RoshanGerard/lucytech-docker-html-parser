@@ -23,6 +23,7 @@ FROM nginx:alpine
 COPY --from=0 /app/dist /usr/share/nginx/html
 
 COPY context/entrypoint.sh /entrypoint.sh
+COPY context/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 RUN chmod +x /entrypoint.sh
 
