@@ -10,14 +10,8 @@ WORKDIR /app
 # Clone the repository
 RUN git clone https://github.com/RoshanGerard/lucytech-fe-html-parser .
 
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
-
 # Install dependencies
 RUN npm install
-
-# Copy the rest of the application code
-COPY . .
 
 # Build the application
 RUN npm run build
