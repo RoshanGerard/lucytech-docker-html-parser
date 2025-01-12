@@ -1,9 +1,12 @@
 #!/bin/bash
 
 # Check if Xvfb is already running for display 99
-if ! ps -ef | grep -q "Xvfb :99"; then
-    # Start Xvfb if it's not running
+if pgrep -f "Xvfb :99" > /dev/null; then
+    echo "Xvfb is already running on display 99"
+else
+    echo "Starting Xvfb on display 99"
     Xvfb :99 -screen 0 1024x768x24 &
+    sleep 1 # Give Xvfb time to start
 fi
 
 # Set DISPLAY environment variable
