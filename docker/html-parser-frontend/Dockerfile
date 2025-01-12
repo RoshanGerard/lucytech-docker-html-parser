@@ -26,6 +26,8 @@ COPY context/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
+RUN apk add --no-cache bash
+
 # Expose port 80
 EXPOSE 80
 
