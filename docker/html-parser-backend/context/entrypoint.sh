@@ -6,7 +6,7 @@ if pgrep -f "Xvfb :99" > /dev/null; then
 else
     echo "Starting Xvfb on display 99"
     Xvfb :99 -screen 0 1024x768x24 &
-    sleep 1 # Give Xvfb time to start
+    sleep 5 # Give Xvfb time to start
 fi
 
 # Set DISPLAY environment variable
