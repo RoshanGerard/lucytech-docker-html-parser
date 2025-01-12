@@ -7,14 +7,24 @@ This project contains two Docker services:
 
 Each service has its respective Dockerfile located in the `docker/` directory. The `bin/` directory contains a script to build all Docker images, and the `.properties` file defines the Docker tag version.
 
-
-## HTML Parser Service Docker
-The `Dockerfile` for the HTML Parser Service is located at `docker/html-parser-service/Dockerfile`. This service parses HTML content and provides an API for accessing the parsed data.
-
 ### Usage
 To build and run the HTML Parser Service Docker image:
-1. Navigate to the `docker/html-parser-service/` directory.
-2. Build the Docker image:
-   ```sh
-   docker build -t html-parser-service:$(cat ../../.properties | grep VERSION | cut -d'=' -f2) .
-   
+1. Build the Docker image:
+   ```shell
+   cd ./bin
+   ./build.sh
+   ```
+2. Run docker services.
+   ```shell
+   cd ./docker-compose
+   docker compose up -d
+   ```
+
+## Author
+
+- **Developer**: Roshan G. Bolonna
+- **Email**: srgbolonna@gmail.com
+- **GitHub**: [GitHub Profile](https://github.com/RoshanGerard)
+- **Website**: [LinkedIn](https://www.linkedin.com/in/srgbolonna)
+
+If you have any questions or feedback, feel free to reach out.
