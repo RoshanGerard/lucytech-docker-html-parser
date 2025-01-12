@@ -18,5 +18,7 @@ RUN go build -o main ./cmd/main.go
 
 COPY context/entrypoint.sh /
 
+RUN chmod +x /entrypoint.sh
+
 # Command to run the executable
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
