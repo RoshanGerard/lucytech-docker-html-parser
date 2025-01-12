@@ -16,7 +16,7 @@ RUN go mod download
 # Build the Go app
 RUN go build -o main ./cmd/main.go
 
-COPY context/entrypoint.sh /
+COPY context/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 

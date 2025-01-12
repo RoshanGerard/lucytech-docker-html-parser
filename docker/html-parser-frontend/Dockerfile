@@ -22,7 +22,7 @@ FROM nginx:alpine
 # Copy the build output to the nginx html directory
 COPY --from=0 /app/dist /usr/share/nginx/html
 
-COPY context/entrypoint.sh /
+COPY context/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
