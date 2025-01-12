@@ -19,4 +19,4 @@ RUN go build -o main ./cmd/main.go
 COPY context/entrypoint.sh /
 
 # Command to run the executable
-CMD ["./main"]
+ENTRYPOINT [ "./entrypoint.sh" ]

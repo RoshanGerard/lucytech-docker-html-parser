@@ -28,4 +28,4 @@ COPY context/entrypoint.sh /
 EXPOSE 80
 
 # Command to run nginx
-CMD ["/entrypoint.sh"]
+ENTRYPOINT [ "/entrypoint.sh" ]
