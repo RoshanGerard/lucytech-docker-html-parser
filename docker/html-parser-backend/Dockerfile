@@ -1,11 +1,15 @@
-# Use the official Golang image
-FROM golang:1.23-alpine
+# Use the official Golang image based on Debian
+FROM golang:1.23
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
-# Install git
-RUN apk add --no-cache git
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    git \
+    chromium \
+    xvfb \
+    && rm -rf /var/lib/apt/lists/*
 
 # Clone the repository
 RUN git clone https://github.com/RoshanGerard/lucytech-be-html-parser .
@@ -20,8 +24,6 @@ COPY context/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN apk add --no-cache bash
-RUN apk add --no-cache chromium
-
-# Command to run the executable
-ENTRYPOINT [ "/entrypoint.sh" ]
+# Command to run the executable with Xvfb
+#ENTRYPOINT ["sh", "-c", "xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' ./entrypoint.sh"]
+ENTRYPOINT [ "./entrypoint.sh" ]
