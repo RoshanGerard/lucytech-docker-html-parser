@@ -26,4 +26,4 @@ RUN chmod +x /entrypoint.sh
 
 # Command to run the executable with Xvfb
 #ENTRYPOINT ["sh", "-c", "xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' ./entrypoint.sh"]
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
